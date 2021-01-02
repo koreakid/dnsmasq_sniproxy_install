@@ -6,7 +6,15 @@
 
 * 用途：让无法观看流媒体的VPS可以观看（前提：VPS中要有一个是能观看流媒体的）。
 
-* 特性：脚本默认解锁`Netflix Hulu HBO`[等](https://github.com/myxuchangbin/dnsmasq_sniproxy_install/blob/master/proxy-domains.txt)，如需增删流媒体域名请编辑文件`/etc/dnsmasq.d/custom_netflix.conf`和`/etc/sniproxy.conf`
+* 特性：脚本默认解锁`Netflix Hulu HBO`[等](https://github.com/myxuchangbin/dnsmasq_sniproxy_install/blob/master/proxy-domains.txt)，如需增删流媒体域名请编辑文件`/etc/dnsmasq.d/custom_netflix.conf`和`/etc/sniproxy.conf`.编辑文件后请重启sniproxy和dnsmasq，命令为systemctl restart sniproxy和systemctl restart dnsmasq。
+virmach解决谷歌验证，可以分别添加
+
+table {
+    .*google\.com$ *
+}
+与
+address=/google.com/x.x.x.x
+
 
 * 脚本支持系统：CentOS6+, Debian8+, Ubuntu16+
     * CentOS6/7/8， Debian8/9/10, Ubuntu16/18 已测试成功
